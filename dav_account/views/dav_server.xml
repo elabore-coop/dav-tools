@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="dav_server_view_tree" model="ir.ui.view">
+        <field name="name">dav.server.view.tree</field>
+        <field name="model">dav.server</field>
+        <field name="arch" type="xml">
+            <tree string="Dav Servers">
+                <field name="name" />
+                <field name="url" />
+                <field name="username" />
+                <field name="status" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="dav_server_view_form" model="ir.ui.view">
+        <field name="name">dav.server.view.form</field>
+        <field name="model">dav.server</field>
+        <field name="arch" type="xml">
+            <form string="Dav Server">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="url" />
+                        <field name="username" />
+                        <field name="password" password="True" />
+                        <field name="status" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="act_dav_server_list" model="ir.actions.act_window">
+        <field name="name">Dav Servers</field>
+        <field name="res_model">dav.server</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_dav" parent="base.menu_custom" sequence="20" name="DAV" />
+
+    <menuitem id="menu_dav_servers" action="act_dav_server_list" parent="menu_dav" sequence="1" name="Dav Servers" />
+
+</odoo>
