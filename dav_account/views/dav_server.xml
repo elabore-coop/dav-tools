@@ -19,6 +19,9 @@
         <field name="model">dav.server</field>
         <field name="arch" type="xml">
             <form string="Dav Server">
+                <header>
+                    <button string="Test connection" name="compute_status" type="object" class="oe_highlight" />
+                </header>
                 <sheet>
                     <group>
                         <field name="name" />

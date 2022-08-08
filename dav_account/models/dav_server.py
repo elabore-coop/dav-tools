@@ -14,7 +14,7 @@ class DavServer(models.Model):
     status = fields.Char(compute='_compute_status', string='Status', store=True)
     
     @api.depends("url", "username", "password")
-    def _compute_status(self):
+    def compute_status(self):
         try:
             self.get_principal()
             self.write({"status": "OK"})

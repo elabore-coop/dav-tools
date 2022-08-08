@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="dav_calendar_view_tree" model="ir.ui.view">
+        <field name="name">dav.calendar.view.tree</field>
+        <field name="model">dav.calendar</field>
+        <field name="arch" type="xml">
+            <tree string="Dav Calendars">
+                <field name="name" readonly="1" />
+                <field name="url" readonly="1" />
+                <field name="dav_server_id" readonly="1" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="dav_calendar_view_form" model="ir.ui.view">
+        <field name="name">dav.calendar.view.form</field>
+        <field name="model">dav.calendar</field>
+        <field name="arch" type="xml">
+            <form string="Dav Calendar">
+                <header>
+                    <button string="Sync Events" name="sync_dav_events" type="object" class="oe_highlight" />
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1" />
+                        <field name="url" readonly="1" />
+                        <field name="dav_server_id" readonly="1" />
+                        <field name="sync_token" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="act_dav_calendar_list" model="ir.actions.act_window">
+        <field name="name">Dav Calendars</field>
+        <field name="res_model">dav.calendar</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_dav_calendars" action="act_dav_calendar_list" parent="dav_account.menu_dav" sequence="2" name="Dav Calendars" />
+
+</odoo>
